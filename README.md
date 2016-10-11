@@ -12,6 +12,7 @@ Comment l'utiliser:
 
 
 feature:
+
 -jeux modulaire: on peut rajouter super facilement n'importe quelle monstre/arme/objet/bonus/decort dans le code , ainsi que leur paterne.
 
 -Jeux fluide caper a 60fps
