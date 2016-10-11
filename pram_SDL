@@ -1,0 +1,103 @@
+all value in private .
+
+all getvalue in public .
+
+/***
+SDL WINDOWS
+***/
+
+SDL_CreateWindow()	Crée une fenêtre
+SDL_CreateWindowFrom()	Crée une fenêtre SDL à partir d'une fenêtre déjà existante
+SDL_DestroyWindow()	Détruit une fenêtre
+SDL_GetWindowData()	Récupère les données utilisateur associées à la fenêtre
+SDL_GetWindowFlags()	Récupère les options actuelles de la fenêtre
+SDL_GetWindowGrab()	Détermine si la fenêtre a le focus clavier
+SDL_GetWindowPosition()	Récupère la position actuelle de la fenêtre
+SDL_GetWindowSize()	Récupère la taille actuelle de la fenêtre
+SDL_GetWindowTitle()	Récupère le titre actuel de la fenêtre
+SDL_HideWindow()	Cache la fenêtre
+SDL_MaximizeWindow()	Agrandit la fenêtre
+SDL_MinimizeWindow()	Réduit la fenêtre dans la barre des tâches
+SDL_RaiseWindow()	Place la fenêtre devant les autres
+SDL_RestoreWindow()	Restaure la taille et la position d'une fenêtre minimisée ou maximisée
+SDL_SetWindowData()	(Re)Définit les données utilisateur de la fenêtre
+SDL_SetWindowFullscreen()	Passe la fenêtre en plein écran
+SDL_SetWindowGrab()	(Re)Donne le focus clavier à cette fenêtre
+SDL_SetWindowIcon()	(Re)Définit l'icône de la fenêtre
+SDL_SetWindowPosition()	(Re)Définit la position de la fenêtre
+SDL_SetWindowSize()	(Re)Définit la taille de la fenêtre
+SDL_SetWindowBordered()	(Re)Définit l'affichage des bordures de la fenêtre
+SDL_SetWindowTitle()	(Re)Définit le titre de la fenêtre
+SDL_ShowWindow()	Affiche la fenêtre
+
+/***
+SDL INIT
+***/
+
+SDL_INIT_AUDIO
+SDL_INIT_VIDEO
+SDL_INIT_CDROM
+SDL_INIT_TIMER
+SDL_INIT_JOYSTICK 
+SDL_INIT_EVENTTHREAD
+SDL_INIT_EVERYTHING
+
+/*
+**gestion dimg sur surface de windows
+*/
+	// SDL_Surface *imgSurface = NULL;
+	// SDL_Surface *imgSurface_optimized = NULL;
+
+	// imgSurface = SDL_LoadBMP(str.c_str()); //loader .bmp
+	// if( imgSurface == NULL )
+	//    ft_puterror("Unable to load image ! SDL Error: " , SDL_GetError());
+	
+	// //load a optimized image
+	// imgSurface_optimized = SDL_ConvertSurface(imgSurface, this->_screenSurface->format, 0);
+	// if (imgSurface_optimized == NULL)
+	// 	ft_puterror("Unable to load optimized image ! SDL Error: " , SDL_GetError());
+	// SDL_FreeSurface( imgSurface );
+
+	// this->_image = imgSurface_optimized;		
+	// std::cout << "[INFOS]: A optimized picture have been created." << std::endl;
+
+SDL_SetAlpha(texture, SDL_SRCALPHA, 128);//turn texture into invisible
+
+boucle game status mais avec dedans de classe et pas directement les mouvement
+
+
+
+
+while (gamestatus)
+{
+	if menu== 0
+		game.start
+	if menu==1
+		mmenu.main
+	if mennu == 2
+		menu.option
+}
+
+
+warning sur image manquqnte et gerer le reste avec un else
+
+
+
+
+getdist
+
+dit = x - x1
+dist2 = y - y1
+dist = sqrt(dist * dist) + (dist2 * dost2)
+
+
+
+                float angle = atan2(Follow_Point_Y - bob->GetY(), Follow_Point_X - bob->GetX());
+                angle = (angle * (180/3.14)) + 180;
+
+
+tuto 25 pour les cacule de camera fluide
+
+
+
+optimiser calculer daffichage avec la dist heros-image
