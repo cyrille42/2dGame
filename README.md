@@ -2,6 +2,7 @@
 Jeux 2d cree en un mois
 
 Comment l'utiliser:
+
 -installer la SDL2 2.0.4 dans ~/
 
 -make
