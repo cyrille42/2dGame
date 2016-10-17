@@ -1,6 +1,9 @@
 # 2dGame
 Jeux 2d cree en un mois
 
+OS :mac
+
+
 Comment l'utiliser:
 
 -installer la SDL2 2.0.4 dans ~/
