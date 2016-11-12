@@ -12,20 +12,15 @@ Entity::~Entity()
 }
 
 
-void Entity::initcrop()//init le decoupage de l image pour les animation // mais apparament sa ser a rien
+void Entity::initcrop()//init le decoupage de l image pour les animation 
 {
 	int a,b;
 
 	SDL_QueryTexture(this->_picture->getTexture(),NULL,NULL,&a,&b);
-	// SDL_Rect crop;
 
-	// crop.x = x;//dist du depart de limage sera toujorus a 0 sauf cas particulier ?
-	// crop.y = y;
-	// crop.w = a;
-	// crop.h = b;
 	this->_crop_Width = a;
 	this->_crop_Height = b;
-	// this->_crop_entity = crop;
+
 	this->_curentFrame = 0;
 }
 
@@ -50,7 +45,7 @@ SDL_Rect Entity::getCrop()
 	return (_pos_entity);
 }
 
-float Entity::Gravity()//saplique aussi au mob ?//que au perso a changer
+float Entity::Gravity()
 {//retourne une valeur de graviter a retirer de cameray
 	if (_gravityDelay + 5 < SDL_GetTicks())
 	{
@@ -60,7 +55,7 @@ float Entity::Gravity()//saplique aussi au mob ?//que au perso a changer
 	return (0);
 }
 
-float Entity::Jump()//jump et gravity on un cd car ilsont dans la boucle rapide
+float Entity::Jump()//jump et gravity on un cd car il sont dans la boucle rapide
 {
 	if (_jumpDelay + 5 < SDL_GetTicks())
 	{
@@ -70,9 +65,9 @@ float Entity::Jump()//jump et gravity on un cd car ilsont dans la boucle rapide
 	return (0);
 }
 
-void Entity::fireWeapon(int moove)//envoyer 	camera ici pour lenvoyer dans la creaiton des weapon
+void Entity::fireWeapon(int moove)
 {
-	if (_fireDelay + _weapon->getfireRate() < SDL_GetTicks())//c'est le setpos qui changer tout en pointeur , faut foutre les adress
+	if (_fireDelay + _weapon->getfireRate() < SDL_GetTicks())
 	{
 		//remplacer par un fmap
 		if (_weapon->getName() == "basic")
@@ -102,8 +97,8 @@ void Entity::draw(float camerax, float cameray)
 }
 
 
-int Entity::getHit(SDL_Rect _posHeros)// watch if you get hit by monster crop
-{//changer les valeur de it par autre chose de plus precis et apres avoir changer le heros crop
+int Entity::getHit(SDL_Rect _posHeros)
+{
 	if(_posHeros.x + 10 < this->_Camera.x + this->_Camera.w &&
    _posHeros.x  + _posHeros.w - 10 > this->_Camera.x &&
    _posHeros.y < this->_Camera.y + this->_Camera.h &&
