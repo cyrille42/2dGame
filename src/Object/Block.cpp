@@ -30,11 +30,10 @@ void Block::draw(int camerax, int cameray)
 
 	this->_Camera.x = this->_pos_x + camerax;
 	this->_Camera.y = this->_pos_y + cameray;
-	SDL_RenderCopy( this->_gRenderer, this->_texture->getTexture(), &this->_crop, &this->_Camera);//crop = image couper , camera = pos image + camera
-}//crop width etire limage
-// chauve souris
+	SDL_RenderCopy( this->_gRenderer, this->_texture->getTexture(), &this->_crop, &this->_Camera);
+}
 
-int Block::getHitUp(SDL_Rect _posHeros)// remplacer 10 par vistess 
+int Block::getHitUp(SDL_Rect _posHeros)
 {
 	if(_posHeros.x < this->_Camera.x + this->_Camera.w &&
    _posHeros.x  + _posHeros.w > this->_Camera.x &&
