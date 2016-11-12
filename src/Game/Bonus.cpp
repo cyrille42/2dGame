@@ -39,15 +39,15 @@ int Bonus::hitBonus(Player *heros)// si on marche dessus
 	}
 	return (0);
 }
-/* cree coffre qui font pop un objet a coter*/
+/* crée coffre qui font pop un objet a cotée*/
 
-void Bonus::creatBonus(int x, int y, float dropNumber)//7 =gros chest 6 = chest 5 = boss 4 = defi 3 = mini boss 2 = petyit defie 1 = gros mob 0.5 = monstre
+void Bonus::creatBonus(int x, int y, float dropNumber)//7 =gros chest 6 = chest 5 = boss 4 = defi 3 = mini boss 2 = petit defie 1 = gros mob 0.5 = monstre
 {			
-	std::random_device rd;//init a faire une foiss tocket dans bonus ?
+	std::random_device rd;
 	std::mt19937_64 gen(rd());//init
 
 	std::uniform_int_distribution<unsigned char> dis;
-	int rand = (int)dis(gen);//casdt prend plus de temps que creation d'un int ?
+	int rand = (int)dis(gen);
 
   	if(dropNumber == 0.5)
 	{
@@ -61,7 +61,7 @@ void Bonus::creatBonus(int x, int y, float dropNumber)//7 =gros chest 6 = chest 
 		else if (rand > 200)
 			_Bonus.push_back(new Bonus_Entity(this->_gRenderer, "ressource/spear.bmp", x - 30 , y , 40, 40, "ham"));
 	}
-	else if(dropNumber == 6)//coffre petit
+	else if(dropNumber == 6)
 	{
 		if (rand < 60)
 			_Bonus.push_back(new Bonus_Entity(this->_gRenderer, "ressource/hp5.bmp", x + 50 , y , 50, 50, "hp5"));
@@ -72,10 +72,6 @@ void Bonus::creatBonus(int x, int y, float dropNumber)//7 =gros chest 6 = chest 
 	}
 
 }
-	//_Bonus_Entity.push_back(new Bonus_Entity(this->_gRenderer, "ressource/ham.bmp", 1800 , 800 , 50, 50, "ham"));
-	//_Bonus_Entity.push_back(new Bonus_Entity(this->_gRenderer, "ressource/cow.bmp", 4400 , 800 , 50, 50, "cow"));
-	//temporaire
-	//_Bonus_Entity.push_back(new Bonus_Entity(this->_gRenderer, "ressource/life.bmp", 4000 , 800 , 50, 50, "life"));
 
 void Bonus::draw(float _CameraX, float _CameraY)
 {
