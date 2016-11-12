@@ -6,7 +6,7 @@
 
 
 Bonus_Entity::Bonus_Entity(SDL_Renderer* gRenderer,  std::string path, int x, int y, int Width, int Height, std::string name)
-{/* verif si y a l'image pour eivter les segfault*/
+{
 	_gRenderer = gRenderer;
 	_texture = new Image(_gRenderer, path.c_str(), 255,255,255);
 
@@ -34,7 +34,7 @@ void Bonus_Entity::draw(int camerax, int cameray)
 {
 	this->_Camera.x = this->_pos_x + camerax;
 	this->_Camera.y = this->_pos_y + cameray;
-	SDL_RenderCopy( this->_gRenderer, this->_texture->getTexture(), &this->_crop, &this->_Camera);//crop = image couper , camera = pos image + camera
+	SDL_RenderCopy( this->_gRenderer, this->_texture->getTexture(), &this->_crop, &this->_Camera);
 }
 
 std::string Bonus_Entity::getName()
