@@ -1,13 +1,10 @@
 #include "Bat.hpp"
 
-//init crop + set animation + setposcrop
-
-//cree classe monstre
 
 Bat::Bat(SDL_Renderer	*gRenderer, int x, int y)// do a bat
 {
 	this->_picture = new Image(gRenderer, "ressource/bat.bmp", 255,255,255);//blanc invisible
-	this->_animationDelay = SDL_GetTicks();//envoyer ou recevoir le get tick ?
+	this->_animationDelay = SDL_GetTicks();
  	this->_frameX = 0;
  	this->_frameY = 0;
  	this->_gRenderer = gRenderer;
@@ -36,7 +33,7 @@ Bat::Bat(SDL_Renderer	*gRenderer, int x, int y)// do a bat
 Bat::Bat(SDL_Renderer	*gRenderer, int x, int y, int dist)//do a speed bat
 {
 	this->_picture = new Image(gRenderer, "ressource/bat.bmp", 255,255,255);//blanc invisible
-	this->_animationDelay = SDL_GetTicks();//envoyer ou recevoir le get tick ?
+	this->_animationDelay = SDL_GetTicks();
  	this->_frameX = 0;
  	this->_frameY = 0;
  	this->_gRenderer = gRenderer;
@@ -66,7 +63,7 @@ Bat::Bat(SDL_Renderer	*gRenderer, int x, int y, int dist)//do a speed bat
 Bat::Bat(SDL_Renderer	*gRenderer, int x, int y, int Width, int height)/* do a powerful bat*/
 {
 	this->_picture = new Image(gRenderer, "ressource/bat.bmp", 255,255,255);//blanc invisible
-	this->_animationDelay = SDL_GetTicks();//envoyer ou recevoir le get tick ?
+	this->_animationDelay = SDL_GetTicks();
  	this->_frameX = 0;
  	this->_frameY = 0;
  	this->_gRenderer = gRenderer;
@@ -98,7 +95,7 @@ Bat::~Bat()
 
 }
 
-int Bat::getDammage(int amount)// faire get dammage comun avec player et add delaydegat en param mettre a0 sauf pour les boss
+int Bat::getDammage(int amount)
 {
 	this->_life -= amount;
 	return (this->_life);
