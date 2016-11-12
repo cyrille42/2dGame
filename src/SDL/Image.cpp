@@ -1,7 +1,7 @@
 #include "Image.hpp"
 
 Image::Image(SDL_Renderer* gRenderer, std::string str, int red, int green , int blue)
-{//le set color key qui turn les couleur en invisible peut faie segfault apparament ?
+{
 	//The final texture
 	SDL_Texture* newTexture = NULL;
 
@@ -41,7 +41,6 @@ Image::Image(SDL_Renderer* gRenderer, std::string str)
 		ft_puterror( "Unable to create texture from ! SDL Error: ", SDL_GetError() );
 
 	SDL_FreeSurface( loadedSurface );
-	//std::cout << "[INFOS]: The texture have been loaded." << std::endl;
 	this->_texture = newTexture;
 }
 
