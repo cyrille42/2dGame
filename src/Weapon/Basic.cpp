@@ -37,7 +37,7 @@ Basic::Basic(SDL_Renderer	*gRenderer, int x, int y, int moove)
 	_name = "basic";
 }
 
-int Basic::mooving(/*float camerax*/)//ici rajouter la camera et noter la camera de depart pour faire un decallage
+int Basic::mooving(/*float camerax*/)
 {
 	if (_moovingDelay + 5 < SDL_GetTicks())
 	{
