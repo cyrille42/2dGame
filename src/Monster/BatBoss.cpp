@@ -3,7 +3,7 @@
 BatBoss::BatBoss(SDL_Renderer	*gRenderer, int x, int y)
 {
 	_picture = new Image(gRenderer, "ressource/batboss.bmp", 255,255,255);//blanc invisible
-	_animationDelay = SDL_GetTicks();//envoyer ou recevoir le get tick ?
+	_animationDelay = SDL_GetTicks();
  	_frameX = 0;
  	_frameY = 0;
  	_gRenderer = gRenderer;
@@ -55,7 +55,7 @@ int BatBoss::mooving(SDL_Rect heros)
 	return (0);
 }
 
-int BatBoss::getx()//changer ya deja un getposx dans entity alive
+int BatBoss::getx()
 {
 	return(_pos_x);
 }
