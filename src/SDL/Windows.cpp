@@ -1,9 +1,5 @@
 #include "Windows.hpp"
 
-/*
-**si on agrandis la fenetre ou on la change , supprimer toute les image et relancer le programme
-*/
-
 Windows::Windows()
 {
 	SDL_Window		*window;
@@ -56,7 +52,6 @@ SDL_Window *Windows::getWindow()
 
 void	Windows::Resize_window(int Width, int Height)
 {
-	//refaire le init renderer ?
 	this->_Width = Width;
 	this->_Height = Height;
 	SDL_SetWindowSize(this->_window, Width, Height);
