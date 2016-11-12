@@ -41,7 +41,7 @@ void Menu::choose_choice(int a, int max)
 		option_menu();
 	// if (a == 2)
 	// 	new_game();
-	else if (a == max)//make a proper leaving game
+	else if (a == max)
 	{
 		std::cout << GREEN << "Systeme have quit properly" << std::endl;//changer sa
 		SDL_Quit();
