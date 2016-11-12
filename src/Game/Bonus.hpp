@@ -1,6 +1,5 @@
 #pragma once
 
-//#include "SDL/Image.hpp"
 #include "Player/Player.hpp"
 #include "Object/Bonus_Entity.hpp"
 #include <random>
