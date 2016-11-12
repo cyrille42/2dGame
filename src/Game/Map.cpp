@@ -27,7 +27,7 @@ void Map::draw(float _CameraX, float _CameraY)//respecter l'ordre d affichage
 	}
 }
 
-void Map::initMap()//faire un init map via fichier externe , ou init map ici
+void Map::initMap()
 {
 	int i = 0;
 	// while( i < 6)
