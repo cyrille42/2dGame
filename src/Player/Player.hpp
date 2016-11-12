@@ -12,7 +12,6 @@ class Player : public Entity {
 		int getPosCropy();
 		int getPosCroph();
 		int getPosCropw();
-		// void setWeapon(Weapon weapon);
 		void changePosx(int amount);
 		void changePosy(int amount);
 		void newBonus(std::string str);
