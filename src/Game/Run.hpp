@@ -27,8 +27,8 @@ class Run {
 		int _jump;
 		std::map<int, bool> _keyboard_input;
 		Monster* _monster;
-		Weapon *_weapon;//a delete
-		int _score;// a delete
+		Weapon *_weapon;
+		int _score;
 		Menu *_game_menu;
 		int _moove;
 };
