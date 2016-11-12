@@ -9,7 +9,7 @@ class Map {
 	public:
 		Map(SDL_Renderer	*gRenderer);
 		void draw(float x, float y);
-		void initMap();//a delete plus tard ?
+		void initMap();
 		~Map();
 		int hitMapDown(SDL_Rect _posHeros);
 		int hitMapUp(SDL_Rect _posHeros);
