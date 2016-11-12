@@ -37,7 +37,7 @@ void Player::draw()
 	SDL_RenderCopy( this->_gRenderer, this->_picture->getTexture(), &this->_crop_entity, &this->_pos_entity);
 }
 
-int Player::getDammage(int amount)// voir si y a pas mieux comme systeme de return life
+int Player::getDammage(int amount)
 {
 	if (this->_dammageDelay + 500 < SDL_GetTicks())
 	{
@@ -48,11 +48,6 @@ int Player::getDammage(int amount)// voir si y a pas mieux comme systeme de retu
 	}
 	return (this->_life);
 }
-
-// void Player::setWeapon(Weapon weapon)
-// {
-// 	_weapon = weapon;
-// }
 
 int Player::getPosCropx()
 {
@@ -104,7 +99,7 @@ void Player::newBonus(std::string str)/* gestion bonus faire en fmap ou autre*/
 	{
 		_max_life += 5;
 		_life += 5;
-		std::cout << "Your max hp is now " << _max_life << std::endl;//faire sa dans une interface
+		std::cout << "Your max hp is now " << _max_life << std::endl;
 	}
 	else if ( !strcmp(str.c_str(), "hp10"))
 	{
@@ -124,7 +119,7 @@ int Player::getLife()
 	return (_life);
 }
 
-void Player::addScore(int amount)//gere aussi la monter de lvl peut ce foutre autre part
+void Player::addScore(int amount)
 {
 	static int a = 0;
 	_score += amount;
@@ -156,7 +151,7 @@ void Player::drawWeapon(/*float camerax*/)
 		kill = _fireWeapon[i]->mooving();
 		if (kill == 1)
 		{
-		 	_fireWeapon.erase(_fireWeapon.begin() + i);//faire un  _dist parcouru dans weapon et le comparer avec dist max
+		 	_fireWeapon.erase(_fireWeapon.begin() + i);
 		 	i--;
 		}
 		else
