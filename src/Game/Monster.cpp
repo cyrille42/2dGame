@@ -73,10 +73,10 @@ int Monster::hitMonster(SDL_Rect _posHeros)//si on touche un mob
 }
 
 /*
-** compare les objet lancer avec la hitbox des monstre
+** compare les objet lancer avec la hitbox des monstres
 */
 
-int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, int bonusdammage)//prend les bonus dammage du heros + les dammage du weapon
+int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, int bonusdammage)//prend les bonus dammage du heros + les dammages du weapon
 {
 	size_t i = 0;
 	int hit;
@@ -91,11 +91,11 @@ int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, 
 			hit = _Bat[i]->getHit(_fireWeapon[j]->getPos());
 			if (hit > 0)
 			{
-				life = _Bat[i]->getDammage(_fireWeapon[j]->getDammage() + bonusdammage);//dammage la bat avec les dammage du weapon + bonus dammage heros entre en parametre
+				life = _Bat[i]->getDammage(_fireWeapon[j]->getDammage() + bonusdammage);
 				_fireWeapon.erase(_fireWeapon.begin() + j);
 				if (life <= 0)
 				{
-					findBonus->creatBonus(_Bat[i]->getposx(), _Bat[i]->getposy(), _Bat[i]->getDrop());//creat bonus via bat name
+					findBonus->creatBonus(_Bat[i]->getposx(), _Bat[i]->getposy(), _Bat[i]->getDrop());//create bonus via bat name
 					score += _Bat[i]->getScore();
 					_Bat.erase(_Bat.begin() + i);
 				}
@@ -117,7 +117,7 @@ int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, 
 				if (life <= 0)
 				{
 					_Bat.push_back(new Bat(this->_gRenderer, _BatBoss[i]->getx(), 600, 250, 250));
-					findBonus->creatBonus(_BatBoss[i]->getposx(), _BatBoss[i]->getposy(), _BatBoss[i]->getDrop());//creat bonus via bat name
+					findBonus->creatBonus(_BatBoss[i]->getposx(), _BatBoss[i]->getposy(), _BatBoss[i]->getDrop());
 					score += _BatBoss[i]->getScore();
 					_BatBoss.erase(_BatBoss.begin() + i);
 				}
@@ -138,7 +138,7 @@ int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, 
 				_fireWeapon.erase(_fireWeapon.begin() + j);
 				if (life <= 0)
 				{
-					findBonus->creatBonus(_Skeleton[i]->getposx(), _Skeleton[i]->getposy(), _Skeleton[i]->getDrop());//creat bonus via Skeleton name
+					findBonus->creatBonus(_Skeleton[i]->getposx(), _Skeleton[i]->getposy(), _Skeleton[i]->getDrop());//create bonus via Skeleton name
 					score += _Skeleton[i]->getScore();
 					_Skeleton.erase(_Skeleton.begin() + i);
 				}
@@ -166,7 +166,7 @@ int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, 
 	}
 	i = 0;
 	int a;
-	while (i < _BatBoss.size())//gere le bat boss
+	while (i < _BatBoss.size())//gére le bat boss
 	{
 		a = _BatBoss[i]->mooving(heros);
 		if (a == 1)
@@ -179,9 +179,8 @@ int Monster::attackMonster(std::vector<Weapon*>& _fireWeapon, Bonus *findBonus, 
 	while (i < _Skeleton.size())
 	{
 		a = _Skeleton[i]->mooving(heros);
-		if (a == 1)//sa a opti ?
+		if (a == 1)
 		{
-			//cree une fonction qui fasse sa tout seul (vur que x et y du weapon aurons toujorus la meme formule par rapport au coor du squelette)
 			_Skeleton[i]->getWeapon()->setpos(_Skeleton[i]->getcamerax() - _Skeleton[i]->getcameraw(), _Skeleton[i]->getcameray() + (_Skeleton[i]->getcamerah() / 2));
 			_monsterWeapon.push_back(_Skeleton[i]->getWeapon());
 		}
@@ -210,7 +209,7 @@ void Monster::pop(int _CameraX, int y)
 	static int a = 0;
 
 	_CameraX *= -1;
-	if (_batDelay + 5000 < SDL_GetTicks())//ppop bat toute les 5 s
+	if (_batDelay + 5000 < SDL_GetTicks())//pop bat toute les 5 s
 	{
 		_Bat.push_back(new Bat(_gRenderer, _CameraX + 1480, y + 25));
 		_batDelay = SDL_GetTicks();
@@ -229,7 +228,7 @@ void Monster::drawWeapon()
 
 	while (i < _monsterWeapon.size())
 	{
-		kill = _monsterWeapon[i]->mooving();//la limite est a droite et pas a gauche faudra changer le draw + 0 tmp car sa influe aussi les mob weapon
+		kill = _monsterWeapon[i]->mooving();
 		if (kill == 1)
 		{
 		 	_monsterWeapon.erase(_monsterWeapon.begin() + i);
@@ -244,13 +243,13 @@ void Monster::drawWeapon()
 }
 
 int Monster::hitWeapon(SDL_Rect _posHeros)//si un mob nous touche avec sont arme
-{//sa laisse pas passer du hit car meme si on ce fait hit on est immortel pendant  300ms
+{//gére les frame d'invinsibiliter après s'être fait toucher
 	size_t i = 0;
 	int dammage;
 	SDL_Rect weapon;
 	while (i < _monsterWeapon.size())
 	{
-		weapon = _monsterWeapon[i]->getPos();//obliger de passer comme sa car on a pas acces au monstre qui a lance le weapon
+		weapon = _monsterWeapon[i]->getPos();
 		if(_posHeros.x + 10 < weapon.x + weapon.w &&  _posHeros.x  + _posHeros.w - 10 > weapon.x &&
 	   _posHeros.y < weapon.y + weapon.h &&
 	   _posHeros.h + _posHeros.y + 10 > weapon.y)
