@@ -2,7 +2,7 @@
 
 Weapon::Weapon()
 {
-}//fmap de str pour cree les bonnes arme directement
+}
 
 Weapon::~Weapon()
 {
@@ -28,13 +28,6 @@ void Weapon::draw()
 {
 	SDL_RenderCopy( this->_gRenderer, this->_picture->getTexture(), &this->_crop_img, &this->_pos_img);
 }
-
-// Weapon  Weapon::newfire(int x, int y)//tire le weapon dans heros, faire calcule special pour armer special 
-// {
-// 	_pos_img.x = x;
-// 	_pos_img.y = y;
-// 	return (*this);
-// }
 
 void  Weapon::setpos(int x, int y)
 {
